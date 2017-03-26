@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ngView</title>
+	<base href="">
+</head>
+<body ng-app="myApp">
+<h1>Choose your destiny!</h1>
+<a href="#science">science</a><br>
+<a href="#sport">sport</a><br>
+<a href="#/">main</a><br>
+<br>
+<div ng-view></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.5.7/angular-route.js"></script>
+<script>
+	angular.module('myApp', ['ngRoute'])
+	.config(['$routeProvider', function($routeProvider) {
+		$routeProvider
+		.when('/science', {
+			templateUrl: 'partials/science.html'
+		})
+		.when('/sport', {
+			templateUrl: 'partials/sport.html'
+
+		})
+		.when('/', {
+			templateUrl: 'partials/main.html'
+		})
+	}]);
+</script>
+
+</body>
+</html>
